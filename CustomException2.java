@@ -2,8 +2,11 @@ package Demo;
 
 import java.util.Scanner;
 
-class InvalidException extends Exception
+class UnderAgeException extends Exception
 {
+	
+}
+class OverAgeException extends Exception{
 	
 }
 class DrivingLicense{
@@ -24,15 +27,21 @@ class DrivingLicense{
 		
 		else {
 			 if(a<18){
-					System.out.println("you are too young");
+				 System.out.println("you are too young...have patience!!");
+				 UnderAgeException u=new UnderAgeException();
+				 System.out.println("Reenter the age");
+				 throw u;
+				
 					
 				}
-			else if(a>65) {
-				System.out.println("calm down!!");
+			else  {
+				System.out.println("you are too old....calm down!!");
+				OverAgeException o=new OverAgeException();
+				System.out.println("Reenter the age");
+				throw o;
 			}	
-			InvalidException i=new InvalidException();
-			System.out.println("Reenter the age");
-			throw i;
+			
+			
 		}
 	}
 }
